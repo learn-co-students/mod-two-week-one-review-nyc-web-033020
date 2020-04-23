@@ -24,6 +24,22 @@ class SeasController < ApplicationController
     render 'show'
   end
 
+  def edit
+    @sea = Sea.find(params[:id])
+    render 'edit'
+  end
+
+  def update
+    @sea = Sea.find(params[:id])
+    @sea.update(sea_params)
+    redirect_to :action => 'show', :id => @sea.id
+  end
+
+  def destroy
+    Sea.find(params[:id]).destroy
+    redirect_to :action => 'index'
+  end
+
   private
   # In controller actions, use this private method to access sea params from forms.
   # Example: @sea.update(sea_params)
