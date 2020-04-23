@@ -1,5 +1,8 @@
 class SeasController < ApplicationController
-  #define your controller actions here
+
+  def show
+    @seas = Sea.all
+  end
 
 
   private
