@@ -1,0 +1,10 @@
+
+<div class="container">
+    <div class="text-center">
+      <h1 class="text-center">7 Seas</h1>
+      <button class="btn btn-info" style="margin: 1em"><a href="/seas/new">Add a Sea</a></button>
+</div>
+
+<% @seas.each do |sea| %>
+  <p><%= link_to sea.name, sea_path(sea.id) %> 
+<% end %> 
