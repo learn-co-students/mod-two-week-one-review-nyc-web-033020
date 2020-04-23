@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  #skip_before_action :verify_authenticity_token, :only => [:destroy]
   get '/seas', to: 'seas#index'
   get '/', to: 'seas#welcome'
   get '/seas/new', to: 'seas#new'
