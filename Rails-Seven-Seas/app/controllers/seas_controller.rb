@@ -1,7 +1,44 @@
 class SeasController < ApplicationController
 
-  def show
+  def welcome
+    render 'welcome'
+  end
+
+  def index
     @seas = Sea.all
+    render 'index'
+  end
+
+  def show
+    @sea = Sea.all.find(params[:id])
+    render 'show'
+  end
+
+  def new
+    @sea = Sea.new
+    render 'new'
+  end
+
+  def create
+    @sea = Sea.create(sea_params)
+    render 'index'
+  end
+
+  def edit
+    @sea = Sea.all.find(params[:id])
+    render 'edit'
+  end
+
+  def update
+    @sea = Sea.find(params[:id])
+    @sea.update(sea_params)
+    render 'show'
+  end
+
+  def destroy
+    @sea = Sea.find(params[:id])
+    @sea.destroy
+    render 'index'
   end
 
 
