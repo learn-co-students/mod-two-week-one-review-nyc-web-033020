@@ -14,7 +14,15 @@ class SeasController < ApplicationController
     render 'show'
   end
 
-  
+  def new
+    @sea = Sea.new
+    render 'new'
+  end
+
+  def create
+    @sea = Sea.create(sea_params)
+    render 'show'
+  end
 
   private
   # In controller actions, use this private method to access sea params from forms.
