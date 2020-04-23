@@ -1,15 +1,5 @@
 class SeasController < ApplicationController
   #define your controller actions here
-
-
-  private
-  # In controller actions, use this private method to access sea params from forms.
-  # Example: @sea.update(sea_params)
-  # check the return value of sea_params to see what you're working with!
-  def sea_params
-    params.require(:sea).permit(:name, :temperature, :bio, :mood, :image_url, :favorite_color, :scariest_creature, :has_mermaids)
-  end
-
   def welcome 
     render :welcome 
   end 
@@ -18,6 +8,30 @@ class SeasController < ApplicationController
     render :index 
   end 
   def new 
-    render :new 
+    @sea = Sea.new 
   end 
-end
+  def create 
+    @sea = Sea.create 
+    redirect to "/seas/#{@sea.id}" 
+  end 
+  def show 
+    @sea = Sea.find(params[:id]) 
+  end 
+  def edit 
+    @sea = Sea.find(params[:id]) 
+  end 
+  def update(args)
+    @sea = Sea.find(params[:id]) 
+    @sea.update(params.args)   
+  end 
+  def delete 
+    @sea = Sea.find(params[:id]) 
+    @sea.destroy 
+    redirect to "/seas" 
+  end 
+  private
+  def sea_params
+    params.require(:sea).permit(:name, :temperature, :bio, :mood, :image_url, :favorite_color, :scariest_creature, :has_mermaids)
+  end
+end 
+

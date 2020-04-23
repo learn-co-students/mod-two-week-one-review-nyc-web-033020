@@ -4,4 +4,8 @@ Rails.application.routes.draw do
   resources :seas, only: :index 
   resources :seas, only: :new 
   resources :seas, only: :edit 
+  resources :seas, only: :show 
+  post "/seas", to: "seas#create" 
+  patch "/seas/:id", to: "seas#update" 
+  delete "/seas/:id", to: "seas#delete"   
 end
