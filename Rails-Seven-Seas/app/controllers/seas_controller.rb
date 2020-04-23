@@ -12,8 +12,7 @@ class SeasController < ApplicationController
 
   def create
     @sea = Sea.create(sea_params)
-
-    # redirect_to 'show.html'
+    render "show.html"
   end
 
   def show
@@ -21,12 +20,22 @@ class SeasController < ApplicationController
   end
 
   def edit
-
+    @sea = Sea.find(params[:id])
+    render 'edit.html'
   end
 
   def update
-
+    @sea = Sea.find(params[:id])
+    @sea.update(sea_params)
+    render 'show.html'
   end
+
+  def destroy 
+    @sea = Sea.find(params[:id])
+    @sea.destroy
+    redirect_to action: "index"
+  end
+
 
 
 
