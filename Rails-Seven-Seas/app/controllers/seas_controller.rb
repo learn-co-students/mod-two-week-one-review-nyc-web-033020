@@ -14,15 +14,17 @@ class SeasController < ApplicationController
   end
   def create
     @sea = Sea.create(sea_params)
-    redirect_to "/seas/#{@sea.id}"
+    redirect_to sea_path(@sea)
+    # "/seas/#{@sea}"
   end
   def edit 
     @sea = Sea.find(params[:id])
   end 
   def update 
-    sea = Sea.find(params[:id])
-      sea.update(sea_params)
-    redirect_to "/seas/#{sea.id}"
+    @sea = Sea.find(params[:id])
+      @sea.update(sea_params)
+    redirect_to sea_path(@sea)
+    # "/seas/#{sea.id}"
   end 
   
   def destroy

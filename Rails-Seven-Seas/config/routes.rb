@@ -4,9 +4,9 @@ Rails.application.routes.draw do
    get '/seas', to: 'seas#index'
    get '/seas/new', to: 'seas#new'
    get '/seas/:id/edit', to: "seas#edit"
-   get '/seas/:id', to: 'seas#show'
+   get '/seas/:id', to: 'seas#show', as: 'sea'
    post '/seas', to: "seas#create"
-   put '/seas/:id', to: "seas#update"
+   patch '/seas/:id', to: "seas#update"
    delete '/seas/:id', to: 'seas#destroy'
-   
+
 end
