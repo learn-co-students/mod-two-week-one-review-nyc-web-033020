@@ -22,7 +22,7 @@ class SeasController < ApplicationController
   end 
   def update(args)
     @sea = Sea.find(params[:id]) 
-    @sea.update(params.args)   
+    @sea.update(sea_params)   
   end 
   def delete 
     @sea = Sea.find(params[:id]) 
